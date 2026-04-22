@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker exec -i my-oracle-db rman target / <<EOF
+SHUTDOWN IMMEDIATE;
+STARTUP MOUNT;
+RESTORE DATABASE;
+RECOVER DATABASE;
+ALTER DATABASE OPEN;
+EXIT;
+EOF
